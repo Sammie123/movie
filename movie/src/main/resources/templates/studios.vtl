@@ -1,0 +1,8 @@
+<h1>All Studios</h1>
+<ul>
+  #foreach ($studio in $studios)
+    <li><a href="/studios/$studio.getId()">$studio.getName()</a></li>
+  #end
+</ul>
+
+<a href="/studios-new">Add a new Studio</a>

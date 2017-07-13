@@ -1,0 +1,10 @@
+<h1>$studio.getName() movies:</h1>
+
+<ul>
+  #foreach($movie in $studio.getMovie())
+    <li>$movie.getName()</li>
+  #end
+</ul>
+
+<a href="/studios/$studio.getId()/movies/new">Add another movie</a>
+<a href="/studios">All studios</a> 

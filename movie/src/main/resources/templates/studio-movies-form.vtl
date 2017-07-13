@@ -1,0 +1,12 @@
+<h1>Add a movie to $studio.getName()</h1>
+
+<form action="/movies" method="post">
+  <input id="studioId" name="studioId" type="hidden" value="$studio.getId()">
+
+  <div class="form-group">
+    <label for="name"> Movie Name:</label>
+    <input id="name" name="name" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn"> Add movie</button>
+</form>

@@ -1,0 +1,13 @@
+<h1>Movie List</h1>
+
+#if ($movies)
+  <ul>
+    #foreach ($movie in $movies)
+      <li><a href="/movies/$movie.getId()">$movie.getName()</a></li>
+    #end
+  </ul>
+#else
+  <p>No movies!</p>
+#end
+
+<a href="/movies-new">Add new Movie</a>
