@@ -40,6 +40,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       Studio newStudio = new Studio(name);
+      newStudio.save();
       model.put("template", "templates/studio-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -53,7 +54,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("studios/:id/movies/new", (request, response) -> {
+    get("studios/:id/movies-new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Studio studio = Studio.find(Integer.parseInt(request.params(":id")));
       model.put("studio", studio);
@@ -65,8 +66,8 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Studio studio = Studio.find(Integer.parseInt(request.queryParams("studioId")));
       String name = request.queryParams("name");
-      Movie newMovie = new Movie(name, 1);
-      // studio.addMovie(newMovie);
+      Movie newMovie = new Movie(name, studio.getId());
+      newMovie.save();
       model.put("studio", studio);
       model.put("template", "templates/studio-movie-success.vtl");
       return new ModelAndView(model, layout);
